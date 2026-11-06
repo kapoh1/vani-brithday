@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Little Place for You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="assets/images/ff.jpg" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600&display=swap" rel="stylesheet"></head>
+<body>
+<canvas id="petals" aria-hidden="true"></canvas>
+<header id="topbar" hidden><button class="back" data-go="home">&larr; Back to Home</button></header>
+<main>
+  <section id="home" class="view" aria-labelledby="homeTitle">
+    <svg class="bloom" id="bloom" viewBox="0 0 100 100" aria-hidden="true"></svg>
+    <h1 id="homeTitle" tabindex="-1"></h1>
+    <p class="sub" id="homeSub"></p>
+    <p class="greet" id="homeGreet"></p>
+    <nav class="cards" id="cards" aria-label="Sections"></nav>
+    <footer id="footer"></footer>
+  </section>
+
+  <section id="playlist" class="view" aria-labelledby="plTitle" hidden>
+    <div class="pl-head">
+      <img id="plCover" alt="Playlist cover">
+      <div><h2 id="plTitle" tabindex="-1"></h2><p id="plSub" class="sub"></p>
+      <a id="plSpotify" class="pill" target="_blank" rel="noopener" hidden>Open on Spotify</a></div>
+    </div>
+    <div class="player" role="group" aria-label="Music player">
+      <div class="now"><img id="npArt" alt=""><div><strong id="npTitle"></strong><span id="npArtist"></span></div></div>
+      <input type="range" id="seek" min="0" max="100" value="0" step="0.1" aria-label="Seek">
+      <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+      <div class="ctrls">
+        <button id="prev" aria-label="Previous track"></button>
+        <button id="play" class="big" aria-label="Play"></button>
+        <button id="next" aria-label="Next track"></button>
+        <label class="vol">Vol <input type="range" id="vol" min="0" max="1" step="0.01" value="0.8" aria-label="Volume"></label>
+      </div>
+      <p id="audioMsg" class="note" role="status"></p>
+    </div>
+    <ol id="tracks" class="tracks"></ol>
+  </section>
+
+  <section id="letter" class="view" aria-labelledby="ltTitle" hidden>
+    <h2 id="ltTitle" tabindex="-1">A Letter for You</h2>
+    <button id="envelope" class="envelope" aria-expanded="false" aria-label="Open the envelope">
+      <span class="flap"></span><span class="pocket"></span><span class="seal" aria-hidden="true">&hearts;</span>
+    </button>
+    <p class="note" id="envHint">Tap the envelope to open it</p>
+    <article id="paper" class="paper" hidden></article>
+  </section>
+
+  <section id="memories" class="view" aria-labelledby="mmTitle" hidden>
+    <h2 id="mmTitle" tabindex="-1">Little Memories</h2>
+    <p class="sub">Ten moments worth keeping.</p>
+    <div id="gallery" class="gallery"></div>
+  </section>
+</main>
+
+<dialog id="lightbox" aria-label="Photo viewer">
+  <button class="lb-close" aria-label="Close">&times;</button>
+  <button class="lb-nav l" aria-label="Previous photo">&lsaquo;</button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="lb-nav r" aria-label="Next photo">&rsaquo;</button>
+</dialog>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
